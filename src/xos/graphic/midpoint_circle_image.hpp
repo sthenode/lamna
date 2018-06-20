@@ -21,6 +21,7 @@
 #ifndef _XOS_GRAPHIC_MIDPOINT_CIRCLE_IMAGE_HPP
 #define _XOS_GRAPHIC_MIDPOINT_CIRCLE_IMAGE_HPP
 
+#include "xos/graphic/hollow_midpoint_circle.hpp"
 #include "xos/graphic/midpoint_circle.hpp"
 #include "xos/graphic/base_image.hpp"
 
@@ -63,6 +64,28 @@ public:
     (tImageInterface &image, tInt cx,tInt cy, tInt r,
      eCircleOctant o = e_CIRCLE_OCTANT_ALL) {
         midpoint_circle_drawt<extends, tPixel, tInt>(*this, image, cx,cy,r, o);
+    }
+};
+
+typedef hollow_midpoint_circlet
+<base_image, image_interface> hollow_midpoint_circle_image_extends;
+///////////////////////////////////////////////////////////////////////
+///  Class: hollow_midpoint_circle_image
+///////////////////////////////////////////////////////////////////////
+class _EXPORT_CLASS hollow_midpoint_circle_image
+: public hollow_midpoint_circle_image_extends {
+public:
+    typedef hollow_midpoint_circle_image_extends extends;
+
+    hollow_midpoint_circle_image(tImageInterface& image): extends(image) {
+    }
+
+    virtual void plot_circle
+    (tImageInterface &image, tInt cx,tInt cy, tInt r,
+     eCircleOctant o = e_CIRCLE_OCTANT_ALL) {
+        circle_start();
+        midpoint_circle_drawt<extends, tPixel, tInt>(*this, image, cx,cy,r, o);
+        circle_finish(image);
     }
 };
 

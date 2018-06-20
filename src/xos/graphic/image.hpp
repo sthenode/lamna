@@ -114,6 +114,16 @@ public:
         }
         return error;
     }
+    virtual eError hollow_circle
+    (tOffset x, tOffset y, tSize r, eOctant o = e_OCTANT_ALL) {
+        eError error = e_ERROR_NONE;
+        tImageInterface* image = 0;
+        if ((image = this->image())) {
+            hollow_midpoint_circle_image circle(*image);
+            circle.plot_circle(*image, x,y, r, o);
+        }
+        return error;
+    }
 
     virtual eError draw_ellipse
     (tOffset x, tOffset y, tSize w, tSize h, eQuadrant q = e_QUADRANT_ALL) {
@@ -131,6 +141,16 @@ public:
         tImageInterface* image = 0;
         if ((image = this->image())) {
             filled_midpoint_ellipse_image ellipse(*image);
+            ellipse.plot_ellipse(*image, x,y, w,h, q);
+        }
+        return error;
+    }
+    virtual eError hollow_ellipse
+    (tOffset x, tOffset y, tSize w, tSize h, eQuadrant q = e_QUADRANT_ALL) {
+        eError error = e_ERROR_NONE;
+        tImageInterface* image = 0;
+        if ((image = this->image())) {
+            hollow_midpoint_ellipse_image ellipse(*image);
             ellipse.plot_ellipse(*image, x,y, w,h, q);
         }
         return error;

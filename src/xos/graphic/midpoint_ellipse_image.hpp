@@ -21,6 +21,7 @@
 #ifndef _XOS_GRAPHIC_MIDPOINT_ELLIPSE_IMAGE_HPP
 #define _XOS_GRAPHIC_MIDPOINT_ELLIPSE_IMAGE_HPP
 
+#include "xos/graphic/hollow_midpoint_ellipse.hpp"
 #include "xos/graphic/midpoint_ellipse.hpp"
 #include "xos/graphic/base_image.hpp"
 
@@ -68,6 +69,33 @@ public:
     (tImageInterface& image, tInt cx,tInt cy, tInt a,tInt b,
      eEllipseQuadrant q = e_ELLIPSE_QUADRANT_ALL) {
         midpoint_ellipse_drawt<extends, tPixel, tInt>(*this, image, cx,cy, a,b, q);
+    }
+    virtual void plot_circle
+    (tImageInterface& image, tInt cx,tInt cy, tInt r,
+     eEllipseQuadrant q = e_ELLIPSE_QUADRANT_ALL) {
+        plot_ellipse(image, cx,cy, r,r, q);
+    }
+};
+
+typedef hollow_midpoint_ellipset
+<midpoint_ellipse_image, image_interface> hollow_midpoint_ellipse_image_extends;
+///////////////////////////////////////////////////////////////////////
+///  Class: hollow_midpoint_ellipse_image
+///////////////////////////////////////////////////////////////////////
+class _EXPORT_CLASS hollow_midpoint_ellipse_image
+: public hollow_midpoint_ellipse_image_extends {
+public:
+    typedef hollow_midpoint_ellipse_image_extends extends;
+
+    hollow_midpoint_ellipse_image(tImageInterface& image): extends(image) {
+    }
+
+    virtual void plot_ellipse
+    (tImageInterface& image, tInt cx,tInt cy, tInt a,tInt b,
+     eEllipseQuadrant q = e_ELLIPSE_QUADRANT_ALL) {
+        ellipse_start();
+        midpoint_ellipse_drawt<extends, tPixel, tInt>(*this, image, cx,cy, a,b, q);
+        ellipse_finish(image);
     }
     virtual void plot_circle
     (tImageInterface& image, tInt cx,tInt cy, tInt r,
