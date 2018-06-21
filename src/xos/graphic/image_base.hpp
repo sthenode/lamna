@@ -31,10 +31,6 @@ namespace graphic {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TImageBaseInterface = image_base_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TBase = base,
  class TImplements = TImageBaseInterface, class TExtends = TBase>
 
@@ -45,20 +41,12 @@ public:
 
     typedef TImageBaseInterface tImageBaseInterface;
     typedef TBase tBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     image_baset(tImageBaseInterface& image): image_(image) {
     }
     virtual ~image_baset() {
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError plot
     (tImageBaseInterface& pixel, tOffset x,tOffset y) {
         eError error = e_ERROR_NONE;
@@ -72,8 +60,6 @@ public:
         return error;
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 protected:
     tImageBaseInterface& image_;
 };

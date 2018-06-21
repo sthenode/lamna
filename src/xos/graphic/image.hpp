@@ -34,10 +34,6 @@ namespace graphic {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TImageInterface = image_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TBase = base,
  class TImplements = TImageInterface, class TExtends = TBase>
 
@@ -48,10 +44,6 @@ public:
 
     typedef TImageInterface tImageInterface;
     typedef TBase tBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     imaget(tImageInterface* image = 0): m_image(image) {
     }

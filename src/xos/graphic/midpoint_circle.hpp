@@ -90,10 +90,6 @@ template
  class TImageBaseInterface = image_base_interface,
  class TImage = TImageBaseInterface,
  class TPixel = TImageBaseInterface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TImageBase>
 
 class _EXPORT_CLASS midpoint_circlet: public TExtends {
@@ -104,10 +100,6 @@ public:
     typedef TImageBase tImageBase;
     typedef TImage tImage;
     typedef TPixel tPixel;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     midpoint_circlet(tImageBaseInterface& image): extends(image) {
     }
@@ -180,10 +172,6 @@ template
  class TImageBaseInterface = image_base_interface,
  class TImage = TImageBaseInterface,
  class TPixel = TImageBaseInterface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TMidpointCircle>
 
 class _EXPORT_CLASS filled_midpoint_circlet: public TExtends {
@@ -194,10 +182,6 @@ public:
     typedef TImageBaseInterface tImageBaseInterface;
     typedef TImage tImage;
     typedef TPixel tPixel;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     filled_midpoint_circlet(tImageBaseInterface& image): extends(image) {
     }

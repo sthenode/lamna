@@ -31,10 +31,6 @@ namespace graphic {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TInterfaceBase = implement_base,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TInterfaceBase>
 
 class _EXPORT_CLASS image_base_interfacet: virtual public TImplements {
@@ -43,13 +39,7 @@ public:
 
     typedef image_base_interfacet tImageBaseInterface;
     typedef TInterfaceBase tInterfaceBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError plot
     (tImageBaseInterface& pixel, tOffset x,tOffset y) {
         eError error = e_ERROR_NONE;
@@ -61,8 +51,6 @@ public:
         return error;
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError fill_ellipse
     (tImageBaseInterface& pixel, tOffset x,tOffset y,
      tSize w,tSize h, eQuadrant quadrant=e_QUADRANT_ALL) {
@@ -88,8 +76,6 @@ public:
         return error;
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError fill_circle
     (tImageBaseInterface& pixel, tOffset x,tOffset y,
      tSize r, eQuadrant quadrant=e_QUADRANT_ALL) {
@@ -103,17 +89,12 @@ public:
         return error;
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError fill_triangle
     (tImageBaseInterface& pixel,
      tOffset x1, tOffset y1, tOffset x2, tOffset y2, tOffset x3, tOffset y3) {
         eError error = e_ERROR_NONE;
         return error;
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 typedef image_base_interfacet<> image_base_interface;
 

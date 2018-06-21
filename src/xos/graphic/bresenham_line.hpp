@@ -196,10 +196,6 @@ template
  class TImageBaseInterface = image_base_interface,
  class TImage = TImageBaseInterface,
  class TPixel = TImageBaseInterface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TImageBase>
 
 class _EXPORT_CLASS bresenham_linet: public TExtends {
@@ -210,19 +206,11 @@ public:
     typedef TImageBase tImageBase;
     typedef TImage tImage;
     typedef TPixel tPixel;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     bresenham_linet(tImageBaseInterface& image): Extends(image) {
     }
     virtual ~bresenham_linet() {
     }
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 
 } /// namespace graphic

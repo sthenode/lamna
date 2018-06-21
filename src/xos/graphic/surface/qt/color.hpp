@@ -38,10 +38,6 @@ template
  class TQImageInterface = image_interface,
  class TQPixelInterface = pixel_interface,
  class TQPixel = pixel,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TColor = surface::colort
  <TQShape, TQImageInterface, TQPixelInterface, TQPixel>,
  class TImplements = TQPixelInterface, class TExtends = TColor>
@@ -53,10 +49,6 @@ public:
 
     typedef TQImageInterface tQImageInterface;
     typedef TColor tColor;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     colort
     (tQImageInterface& surfaceQImage,

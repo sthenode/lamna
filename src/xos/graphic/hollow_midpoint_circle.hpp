@@ -35,10 +35,6 @@ template
  class TImageBaseInterface = image_base_interface,
  class TImage = TImageBaseInterface,
  class TPixel = TImageBaseInterface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TMidpointCircle>
 
 class _EXPORT_CLASS hollow_midpoint_circlet: public TExtends {
@@ -49,10 +45,6 @@ public:
     typedef TImageBaseInterface tImageBaseInterface;
     typedef TImage tImage;
     typedef TPixel tPixel;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     hollow_midpoint_circlet(tImage& image)
     : extends(image),

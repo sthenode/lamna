@@ -36,10 +36,6 @@ template
  class TImageInterface = image_interface,
  class TImageBaseInterface = image_base_interface,
  class TSelectedImage = graphic::image_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TShape>
 
 class _EXPORT_CLASS shapet: public TExtends {
@@ -49,13 +45,7 @@ public:
     typedef TImageInterface tImageInterface;
     typedef TImageBaseInterface tImageBaseInterface;
     typedef TSelectedImage tSelectedImage;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     shapet
     (tImageInterface& surface_image,
      tSize width = 0, tSize height = 0)
@@ -66,14 +56,10 @@ public:
     }
 
 protected:
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual tSelectedImage* surface_select_image(tSelectedImage* image) {
         return surface_image_.select_image(image);
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 protected:
     tImageInterface& surface_image_;
 };

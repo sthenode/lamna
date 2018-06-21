@@ -35,10 +35,6 @@ namespace qt {
 template
 <class TQContextInterface = context_interface,
  class TImageInterface = surface::image_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TImageInterface>
 
 class _EXPORT_CLASS image_interfacet: virtual public TImplements {
@@ -47,11 +43,6 @@ public:
 
     typedef TQContextInterface tQContextInterface;
     typedef TImageInterface tImageInterface;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
-
 
     virtual tQContextInterface& surfaceQContext() const = 0;
 };
@@ -64,10 +55,6 @@ template
 <class TQImageInterface = image_interface,
  class TImage = surface::image,
  class TQContextInterface = context_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TQImageInterface, class TExtends = TImage>
 
 class _EXPORT_CLASS imaget: virtual public TImplements, public TExtends {
@@ -77,10 +64,6 @@ public:
 
     typedef TQImageInterface tQImageInterface;
     typedef TQContextInterface tQContextInterface;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     imaget
     (tQContextInterface& surfaceQContext, tQImageInterface* image = 0)

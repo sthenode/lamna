@@ -34,10 +34,6 @@ namespace surface {
 template
 <class TContextInterface = context_interface,
  class TImageInterface = image_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TImageInterface>
 
 class _EXPORT_CLASS image_interfacet: virtual public TImplements {
@@ -46,10 +42,6 @@ public:
 
     typedef TContextInterface tContextInterface;
     typedef TImageInterface tImageInterface;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     virtual tContextInterface& context_interface() const = 0;
 };

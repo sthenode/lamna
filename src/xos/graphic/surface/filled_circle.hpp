@@ -33,10 +33,6 @@ namespace surface {
 template
 <class TShape = shape,
  class TImageInterface = image_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TShape>
 
 class _EXPORT_CLASS filled_circlet: public TExtends {
@@ -45,10 +41,6 @@ public:
 
     typedef TShape tShape;
     typedef TImageInterface tImageInterface;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     filled_circlet
     (tImageInterface& image, tShape& color, tSize r)

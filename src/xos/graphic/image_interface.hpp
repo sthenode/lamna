@@ -31,10 +31,6 @@ namespace graphic {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TInterfaceBase = image_base_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TInterfaceBase>
 
 class _EXPORT_CLASS image_interfacet: virtual public TImplements {
@@ -43,10 +39,6 @@ public:
 
     typedef image_interfacet tImageInterface;
     typedef TInterfaceBase tInterfaceBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     virtual eError plot(tImageInterface& image, tOffset x, tOffset y) {
         eError error = e_ERROR_NONE;

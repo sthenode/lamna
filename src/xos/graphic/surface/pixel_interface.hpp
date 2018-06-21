@@ -32,11 +32,6 @@ namespace surface {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TInterfaceBase = implement_base,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
- TSize VRGBAxisSize = 256,
  class TImplements = TInterfaceBase>
 
 class _EXPORT_CLASS pixel_interfacet: virtual public TImplements {
@@ -44,13 +39,7 @@ public:
     typedef TImplements implements;
 
     typedef TInterfaceBase tInterfaceBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual byte_t rgb_axis_to_byte(tSize x) const {
         byte_t to = ((byte_t)x);
         return to;
@@ -64,10 +53,8 @@ public:
         return to;
     }
     virtual tSize rgb_axis_size() const {
-        return VRGBAxisSize;
+        return vRGBAxisSize;
     }
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 typedef pixel_interfacet<> pixel_interface;
 

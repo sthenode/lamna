@@ -35,10 +35,6 @@ template
 <class TPixelInterface = pixel_interface,
  class TInterfaceBase = context_interface,
  class TBase = base,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TInterfaceBase, class TExtends = TBase>
 
 class _EXPORT_CLASS contextt: virtual public TImplements,public TExtends {
@@ -48,20 +44,11 @@ public:
 
     typedef TPixelInterface tPixelInterface;
     typedef TInterfaceBase tInterfaceBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     contextt() {
     }
     virtual ~contextt() {
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 typedef contextt<> context;
 

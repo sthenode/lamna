@@ -36,15 +36,11 @@ class _EXPORT_CLASS bresenham_line_image: public bresenham_line_image_extends {
 public:
     typedef bresenham_line_image_extends extends;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     bresenham_line_image(tImageInterface& image): extends(image) {
     }
     virtual ~bresenham_line_image() {
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual void draw_line
     (tImageInterface &image, tInt x1,tInt y1, tInt x2,tInt y2) {
         bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x1,y1, x2,y2);
@@ -55,9 +51,6 @@ public:
         bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x2,y2, x3,y3);
         bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x3,y3, x1,y1);
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 
 } /// namespace graphic

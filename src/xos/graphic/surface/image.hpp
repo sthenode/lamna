@@ -34,10 +34,6 @@ template
 <class TContextInterface = context_interface,
  class TImageInterface = image_interface,
  class TImage = image,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TImageInterface, class TExtends = TImage>
 
 class _EXPORT_CLASS imaget: virtual public TImplements, public TExtends {
@@ -48,10 +44,6 @@ public:
     typedef TContextInterface tContextInterface;
     typedef TImageInterface tImageInterface;
     typedef TImage tImage;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     imaget(tContextInterface& context, tImageInterface* image)
     : extends(image), m_context(context) {

@@ -34,11 +34,6 @@ namespace qt {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TPixelInterface = surface::pixel_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
- TSize VRGBAxisSize = 256,
  class TImplements = TPixelInterface>
 
 class _EXPORT_CLASS pixel_interfacet: virtual public TImplements {
@@ -55,11 +50,6 @@ typedef pixel_interfacet<> pixel_interface;
 template
 <class TQPixelInterface = pixel_interface,
  class TPixel = surface::pixel,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
- TSize VRGBAxisSize = 256,
  class TImplements = TQPixelInterface, class TExtends = TPixel>
 
 class _EXPORT_CLASS pixelt: virtual public TImplements, public TExtends {

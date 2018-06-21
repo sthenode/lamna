@@ -33,11 +33,6 @@ namespace surface {
 template
 <class TInterfaceBase = pixel_interface,
  class TBase = base,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
- TSize VRGBAxisSize = 256,
  class TImplements = TInterfaceBase, class TExtends = TBase>
 
 class _EXPORT_CLASS pixelt: virtual public TImplements, public TExtends {
@@ -46,13 +41,7 @@ public:
     typedef TExtends extends;
 
     typedef TInterfaceBase tInterfaceBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     pixelt(tSize r, tSize g, tSize b, tSize a) {
     }
     pixelt(tSize r, tSize g, tSize b) {
@@ -61,9 +50,6 @@ public:
     }
     virtual ~pixelt() {
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 typedef pixelt<> pixel;
 

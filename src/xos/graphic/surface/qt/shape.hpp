@@ -35,10 +35,6 @@ namespace qt {
 template
 <class TQImageInterface = image_interface,
  class TShape = surface::shape,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TExtends = TShape>
 
 class _EXPORT_CLASS shapet: public TExtends {
@@ -47,10 +43,6 @@ public:
 
     typedef TQImageInterface tQImageInterface;
     typedef TShape tShape ;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     shapet(tQImageInterface& surfaceQImage)
     : extends(surfaceQImage), m_surfaceQImage(surfaceQImage) {

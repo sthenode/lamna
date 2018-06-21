@@ -35,10 +35,6 @@ namespace qt {
 template
 <class TContextInterface = surface::context_interface,
  class TQPixelInterface = pixel_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TContextInterface>
 
 class _EXPORT_CLASS context_interfacet: virtual public TImplements {
@@ -46,10 +42,6 @@ public:
     typedef TImplements implements;
 
     typedef TQPixelInterface tQPixelInterface;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     virtual eError fill_rectangle
     (tOffset x, tOffset y, tSize width, tSize height, const tQPixelInterface& color) {
@@ -66,10 +58,6 @@ template
 <class TContextInterface = context_interface,
  class TContext = surface::context,
  class TQPixelInterface = pixel_interface,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TContextInterface, class TExtends = TContext>
 
 class _EXPORT_CLASS contextt: virtual public TImplements, public TExtends {
@@ -78,10 +66,6 @@ public:
     typedef TExtends extends;
 
     typedef TQPixelInterface tQPixelInterface;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     contextt(QPaintDevice* device): qPainter_(device) {
     }

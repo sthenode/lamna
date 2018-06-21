@@ -35,10 +35,6 @@ template
  class TImageInterface = image_interface,
  class TPixelInterface = pixel_interface,
  class TPixel = pixel,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TPixelInterface, class TExtends = TShape>
 
 class _EXPORT_CLASS colort: virtual public TImplements, public TExtends {
@@ -51,10 +47,6 @@ public:
     typedef TImageInterface tImageInterface;
     typedef TPixelInterface tPixelInterface;
     typedef TPixel tPixel;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
     colort
     (tImageInterface& surface_image,

@@ -33,10 +33,6 @@ namespace surface {
 template
 <class TPixelInterface = pixel_interface,
  class TInterfaceBase = implement_base,
- class TInt = int,
- class TSize = size_t,
- class TLength = ssize_t,
- class TOffset = ssize_t,
  class TImplements = TInterfaceBase>
 
 class _EXPORT_CLASS context_interfacet: virtual public TImplements {
@@ -45,13 +41,7 @@ public:
 
     typedef TPixelInterface tPixelInterface;
     typedef TInterfaceBase tInterfaceBase;
-    typedef TInt tInt;
-    typedef TSize tSize;
-    typedef TLength tLength;
-    typedef TOffset tOffset;
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError fill_rectangle
     (tOffset x, tOffset y, tSize width, tSize height) {
         eError error = e_ERROR_NONE;
@@ -63,8 +53,6 @@ public:
         return error;
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError set_foreground
     (tPixelInterface& oldColor, const tPixelInterface& toColor) {
         eError error = e_ERROR_NONE;
@@ -79,8 +67,6 @@ public:
         return color;
     }
 
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
     virtual eError set_background
     (tPixelInterface& oldColor, const tPixelInterface& toColor) {
         eError error = e_ERROR_NONE;
@@ -94,9 +80,6 @@ public:
         const tPixelInterface* color = 0;
         return color;
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////
 };
 typedef context_interfacet<> context_interface;
 
