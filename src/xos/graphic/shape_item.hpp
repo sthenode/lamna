@@ -38,17 +38,17 @@ class _EXPORT_CLASS shape_item: public shape_item_extends {
 public:
     typedef shape_item_extends extends;
 
-    shape_item(shape_interface& shape): m_shape(shape) {
+    shape_item(shape_interface& shape): shape_(shape) {
     }
     virtual ~shape_item() {
     }
 
     virtual shape_interface& shape() const {
-        return (shape_interface&)m_shape;
+        return (shape_interface&)shape_;
     }
 
 protected:
-    shape_interface& m_shape;
+    shape_interface& shape_;
 };
 
 } /// namespace graphic

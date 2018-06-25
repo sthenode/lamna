@@ -29,16 +29,14 @@ namespace graphic {
 ///////////////////////////////////////////////////////////////////////
 ///  Class: image_interfacet
 ///////////////////////////////////////////////////////////////////////
-template
-<class TInterfaceBase = image_base_interface,
- class TImplements = TInterfaceBase>
+template <class TImplements = image_base_interface>
 
 class _EXPORT_CLASS image_interfacet: virtual public TImplements {
 public:
     typedef TImplements implements;
 
     typedef image_interfacet tImageInterface;
-    typedef TInterfaceBase tInterfaceBase;
+    typedef implements tImageBaseInterface;
 
     virtual eError plot(tImageInterface& image, tOffset x, tOffset y) {
         eError error = e_ERROR_NONE;

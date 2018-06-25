@@ -32,9 +32,7 @@ namespace surface {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TContextInterface = context_interface,
- class TImageInterface = image_interface,
- class TImage = image,
- class TImplements = TImageInterface, class TExtends = TImage>
+ class TImplements = image_interface, class TExtends = graphic::image>
 
 class _EXPORT_CLASS imaget: virtual public TImplements, public TExtends {
 public:
@@ -42,8 +40,7 @@ public:
     typedef TExtends extends;
 
     typedef TContextInterface tContextInterface;
-    typedef TImageInterface tImageInterface;
-    typedef TImage tImage;
+    typedef implements tImageInterface;
 
     imaget(tContextInterface& context, tImageInterface* image)
     : extends(image), m_context(context) {

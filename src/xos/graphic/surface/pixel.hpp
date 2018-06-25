@@ -31,25 +31,37 @@ namespace surface {
 ///  Class: pixelt
 ///////////////////////////////////////////////////////////////////////
 template
-<class TInterfaceBase = pixel_interface,
- class TBase = base,
- class TImplements = TInterfaceBase, class TExtends = TBase>
+<class TImplements = pixel_interface, class TExtends = base>
 
 class _EXPORT_CLASS pixelt: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
 
-    typedef TInterfaceBase tInterfaceBase;
-
-    pixelt(tSize r, tSize g, tSize b, tSize a) {
+    pixelt(tSize r, tSize g, tSize b, tSize a): r_(r), g_(g), b_(b), a_(a) {
     }
-    pixelt(tSize r, tSize g, tSize b) {
+    pixelt(tSize r, tSize g, tSize b): r_(r), g_(g), b_(b), a_(0) {
     }
-    pixelt() {
+    pixelt(): r_(0), g_(0), b_(0), a_(0) {
     }
     virtual ~pixelt() {
     }
+    
+    virtual tSize red() const {
+        return r_;
+    }
+    virtual tSize green() const {
+        return g_;
+    }
+    virtual tSize blue() const {
+        return b_;
+    }
+    virtual tSize alpha() const {
+        return a_;
+    }
+
+protected:
+    tSize r_, g_, b_, a_;
 };
 typedef pixelt<> pixel;
 

@@ -32,15 +32,13 @@ namespace surface {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TPixelInterface = pixel_interface,
- class TInterfaceBase = implement_base,
- class TImplements = TInterfaceBase>
+ class TImplements = implement_base>
 
 class _EXPORT_CLASS context_interfacet: virtual public TImplements {
 public:
     typedef TImplements implements;
 
     typedef TPixelInterface tPixelInterface;
-    typedef TInterfaceBase tInterfaceBase;
 
     virtual eError fill_rectangle
     (tOffset x, tOffset y, tSize width, tSize height) {

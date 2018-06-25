@@ -52,24 +52,24 @@ public:
     (tImageInterface& surface_image,
      tSize r = 0, tSize g = 0, tSize b = 0, tSize width = 1, tSize height = 1)
     : extends(surface_image),
-      m_surface_image(surface_image),
-      m_r(r), m_g(g), m_b(b),
-      m_width(width), m_height(height),
-      m_color(r,g,b) {
+      surface_image_(surface_image),
+      r_(r), g_(g), b_(b), a_(0),
+      width_(width), height_(height),
+      color_(r,g,b) {
     }
     colort(const colort& copy, tSize width, tSize height)
-    : extends(copy.m_surface_image),
-      m_surface_image(copy.m_surface_image),
-      m_r(copy.m_r), m_g(copy.m_g), m_b(copy.m_b),
-      m_width(width), m_height(height),
-      m_color(copy.m_color) {
+    : extends(copy.surface_image_),
+      surface_image_(copy.surface_image_),
+      r_(copy.r_), g_(copy.g_), b_(copy.b_), 
+      a_(copy.a_), width_(width), height_(height),
+      color_(copy.color_) {
     }
     colort(const colort& copy)
-    : extends(copy.m_surface_image),
-      m_surface_image(copy.m_surface_image),
-      m_r(copy.m_r), m_g(copy.m_g), m_b(copy.m_b),
-      m_width(copy.m_width), m_height(copy.m_height),
-      m_color(copy.m_color) {
+    : extends(copy.surface_image_),
+      surface_image_(copy.surface_image_),
+      r_(copy.r_), g_(copy.g_), b_(copy.b_),
+      a_(copy.a_), width_(copy.width_), height_(copy.height_),
+      color_(copy.color_) {
     }
     virtual ~colort() {
     }
@@ -102,22 +102,23 @@ public:
         return error;
     }
 
-    virtual tSize red() const { return m_r; }
-    virtual tSize green() const { return m_g; }
-    virtual tSize blue() const { return m_b; }
+    virtual tSize red() const { return r_; }
+    virtual tSize green() const { return g_; }
+    virtual tSize blue() const { return b_; }
+    virtual tSize alpha() const { return a_; }
 
-    virtual tSize width() const { return m_width; }
-    virtual tSize height() const { return m_height; }
+    virtual tSize width() const { return width_; }
+    virtual tSize height() const { return height_; }
 
     virtual tPixelInterface& color() const {
-        return (tPixelInterface&)m_color;
+        return (tPixelInterface&)color_;
     }
 
 protected:
-    tImageInterface& m_surface_image;
-    tSize m_r, m_g, m_b;
-    tSize m_width, m_height;
-    tPixel m_color;
+    tImageInterface& surface_image_;
+    tSize r_, g_, b_, a_;
+    tSize width_, height_;
+    tPixel color_;
 };
 typedef colort<> color;
 

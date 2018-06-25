@@ -27,71 +27,73 @@
 namespace xos {
 namespace graphic {
 
-typedef shape_interface shape_implements;
-typedef base shape_extends;
 ///////////////////////////////////////////////////////////////////////
-///  Class: shape
+///  Class: shapet
 ///////////////////////////////////////////////////////////////////////
-class _EXPORT_CLASS shape
-: virtual public shape_implements, private shape_extends {
-public:
-    typedef shape_implements implements;
-    typedef shape_extends extends;
+template 
+<class TImageInterface = image_interface, class TItem = shape_item,
+ class TImplements = shape_interface, class TExtends = base>
 
-    shape
-    (image_interface& image,
-     tSize width = 0, tSize height = 0,
-     image_interface* selectedImage = 0)
-    : m_item(*this), m_image(image),
-      m_width(width), m_height(height),
-      m_selectedImage(selectedImage) {
+class _EXPORT_CLASS shapet: virtual public TImplements, private TExtends {
+public:
+    typedef TImplements implements;
+    typedef TExtends extends;
+
+    typedef TItem tItem;
+    typedef TImageInterface tImageInterface;
+    
+    shapet
+    (tImageInterface& image,
+     tSize width = 0, tSize height = 0, 
+     tImageInterface* selected_image = 0)
+    : item_(*this), image_(image),
+      selected_image_(selected_image),
+      width_(width), height_(height) {
     }
-    virtual ~shape() {
+    virtual ~shapet() {
     }
 
     virtual tImageInterface* select_as_image() {
-        tImageInterface* prevImage = 0;
-        prevImage = m_image.select_image(this);
-        return prevImage;
+        tImageInterface* prev_image = image_.select_image(this);
+        return prev_image;
     }
     virtual tImageInterface* set_as_image() {
-        tImageInterface* prevImage = 0;
-        prevImage = m_image.set_image(this);
-        return prevImage;
+        tImageInterface* prev_image = image_.set_image(this);
+        return prev_image;
     }
 
     virtual tImageInterface* set_image(tImageInterface* image) {
-        tImageInterface* prevImage = this->image();
-        m_selectedImage = image;
-        return prevImage;
+        tImageInterface* prev_image = this->image();
+        selected_image_ = image;
+        return prev_image;
     }
     virtual tImageInterface* image() const {
-        tImageInterface* image = 0;
-        image = m_selectedImage;
+        tImageInterface* image = selected_image_;
         return image;
     }
 
     virtual eError set_size(tSize width, tSize height) {
         eError error = e_ERROR_NONE;
-        m_width = width;
-        m_height = height;
-        error = on_set_size(width, height);
+        width_ = width;
+        height_ = height;
+        error = this->on_set_size(width, height);
         return error;
     }
 
     virtual tSize width() const {
-        return m_width;
+        return width_;
     }
     virtual tSize height() const {
-        return m_height;
+        return height_;
     }
     
 protected:
-    shape_item m_item;
-    image_interface& m_image;
-    image_interface* m_selectedImage;
-    tSize m_width, m_height;
+    tItem item_;
+    tImageInterface& image_;
+    tImageInterface* selected_image_;
+    tSize width_, height_;
 };
+typedef shapet<> shape;
 
 } /// namespace graphic
 } /// namespace xos

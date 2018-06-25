@@ -33,8 +33,7 @@ namespace qt {
 ///  Class: pixel_interfacet
 ///////////////////////////////////////////////////////////////////////
 template
-<class TPixelInterface = surface::pixel_interface,
- class TImplements = TPixelInterface>
+<class TImplements = surface::pixel_interface>
 
 class _EXPORT_CLASS pixel_interfacet: virtual public TImplements {
 public:
@@ -48,18 +47,16 @@ typedef pixel_interfacet<> pixel_interface;
 ///  Class: pixelt
 ///////////////////////////////////////////////////////////////////////
 template
-<class TQPixelInterface = pixel_interface,
- class TPixel = surface::pixel,
- class TImplements = TQPixelInterface, class TExtends = TPixel>
+<class TImplements = pixel_interface, class TExtends = surface::pixel>
 
 class _EXPORT_CLASS pixelt: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
 
-    pixelt(int r, int g, int b, int a): qColor_(r,g,b,a) {
+    pixelt(int r, int g, int b, int a): extends(r,g,b,a), qColor_(r,g,b,a) {
     }
-    pixelt(int r, int g, int b): qColor_(r,g,b) {
+    pixelt(int r, int g, int b): extends(r,g,b), qColor_(r,g,b) {
     }
     pixelt(): qColor_(0,0,0) {
     }

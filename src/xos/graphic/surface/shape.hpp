@@ -32,22 +32,21 @@ namespace surface {
 ///  Class: shapet
 ///////////////////////////////////////////////////////////////////////
 template
-<class TShape = graphic::shape,
- class TImageInterface = image_interface,
- class TImageBaseInterface = image_base_interface,
- class TSelectedImage = graphic::image_interface,
- class TExtends = TShape>
+<class TSurfaceImageInterface = image_interface,
+ class TImageInterface = graphic::image_interface,
+ class TImplements = graphic::shape_interface,
+ class TExtends = graphic::shape>
 
-class _EXPORT_CLASS shapet: public TExtends {
+class _EXPORT_CLASS shapet: virtual public TImplements, public TExtends {
 public:
+    typedef TImplements implements;
     typedef TExtends extends;
 
+    typedef TSurfaceImageInterface tSurfaceImageInterface;
     typedef TImageInterface tImageInterface;
-    typedef TImageBaseInterface tImageBaseInterface;
-    typedef TSelectedImage tSelectedImage;
 
     shapet
-    (tImageInterface& surface_image,
+    (tSurfaceImageInterface& surface_image,
      tSize width = 0, tSize height = 0)
     : extends(surface_image, width, height),
       surface_image_(surface_image) {
@@ -56,12 +55,12 @@ public:
     }
 
 protected:
-    virtual tSelectedImage* surface_select_image(tSelectedImage* image) {
+    virtual tImageInterface* surface_select_image(tImageInterface* image) {
         return surface_image_.select_image(image);
     }
 
 protected:
-    tImageInterface& surface_image_;
+    tSurfaceImageInterface& surface_image_;
 };
 typedef shapet<> shape;
 

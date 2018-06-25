@@ -33,19 +33,16 @@ namespace graphic {
 ///  Class: imaget
 ///////////////////////////////////////////////////////////////////////
 template
-<class TImageInterface = image_interface,
- class TBase = base,
- class TImplements = TImageInterface, class TExtends = TBase>
+<class TImplements = image_interface, class TExtends = base>
 
-class _EXPORT_CLASS imaget: virtual public TImplements,public TExtends {
+class _EXPORT_CLASS imaget: virtual public TImplements, public TExtends {
 public:
-    typedef TImplements Implements;
-    typedef TExtends Extends;
+    typedef TImplements implements;
+    typedef TExtends extends;
 
-    typedef TImageInterface tImageInterface;
-    typedef TBase tBase;
+    typedef implements tImageInterface;
 
-    imaget(tImageInterface* image = 0): m_image(image) {
+    imaget(tImageInterface* image = 0): image_(image) {
     }
     virtual ~imaget() {
     }
@@ -149,17 +146,17 @@ public:
     }
 
     virtual tImageInterface* set_image(tImageInterface* image) {
-        tImageInterface* prevImage = m_image;
-        m_image = image;
+        tImageInterface* prevImage = image_;
+        image_ = image;
         return prevImage;
     }
     virtual tImageInterface* image() const {
-        tImageInterface* image = m_image;
+        tImageInterface* image = image_;
         return image;
     }
 
 protected:
-    tImageInterface* m_image;
+    tImageInterface* image_;
 };
 typedef imaget<> image;
 

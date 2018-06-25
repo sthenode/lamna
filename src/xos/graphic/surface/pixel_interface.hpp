@@ -31,14 +31,11 @@ namespace surface {
 ///  Class: pixel_interfacet
 ///////////////////////////////////////////////////////////////////////
 template
-<class TInterfaceBase = implement_base,
- class TImplements = TInterfaceBase>
+<class TImplements = implement_base>
 
 class _EXPORT_CLASS pixel_interfacet: virtual public TImplements {
 public:
     typedef TImplements implements;
-
-    typedef TInterfaceBase tInterfaceBase;
 
     virtual byte_t rgb_axis_to_byte(tSize x) const {
         byte_t to = ((byte_t)x);
@@ -54,6 +51,19 @@ public:
     }
     virtual tSize rgb_axis_size() const {
         return vRGBAxisSize;
+    }
+
+    virtual tSize red() const {
+        return 0;
+    }
+    virtual tSize green() const {
+        return 0;
+    }
+    virtual tSize blue() const {
+        return 0;
+    }
+    virtual tSize alpha() const {
+        return 0;
     }
 };
 typedef pixel_interfacet<> pixel_interface;

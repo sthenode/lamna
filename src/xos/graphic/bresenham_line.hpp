@@ -200,14 +200,14 @@ template
 
 class _EXPORT_CLASS bresenham_linet: public TExtends {
 public:
-    typedef TExtends Extends;
+    typedef TExtends extends;
 
     typedef TImageBaseInterface tImageBaseInterface;
     typedef TImageBase tImageBase;
     typedef TImage tImage;
     typedef TPixel tPixel;
 
-    bresenham_linet(tImageBaseInterface& image): Extends(image) {
+    bresenham_linet(tImageBaseInterface& image): extends(image) {
     }
     virtual ~bresenham_linet() {
     }

@@ -33,15 +33,13 @@ namespace surface {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TContextInterface = context_interface,
- class TImageInterface = image_interface,
- class TImplements = TImageInterface>
+ class TImplements = graphic::image_interface>
 
 class _EXPORT_CLASS image_interfacet: virtual public TImplements {
 public:
     typedef TImplements implements;
 
     typedef TContextInterface tContextInterface;
-    typedef TImageInterface tImageInterface;
 
     virtual tContextInterface& context_interface() const = 0;
 };

@@ -31,17 +31,15 @@ namespace graphic {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TImageInterface = image_interface,
- class TBase = base,
- class TExtends = TBase>
+ class TExtends = base>
 
 class _EXPORT_CLASS base_imaget: public TExtends {
 public:
     typedef TExtends extends;
 
     typedef TImageInterface tImageInterface;
-    typedef TBase tBase;
 
-    base_imaget(tImageInterface& image): m_image(image) {
+    base_imaget(tImageInterface& image): image_(image) {
     }
     virtual ~base_imaget() {
     }
@@ -57,16 +55,16 @@ public:
     }
 
     virtual eError plot(tOffset x, tOffset y) {
-        eError error = m_image.plot(x,y);
+        eError error = image_.plot(x,y);
         return error;
     }
     virtual eError fill(tOffset x, tOffset y, tSize w, tSize h) {
-        eError error = m_image.fill(x,y, w,h);
+        eError error = image_.fill(x,y, w,h);
         return error;
     }
 
 protected:
-    tImageInterface& m_image;
+    tImageInterface& image_;
 };
 typedef base_imaget<> base_image;
 

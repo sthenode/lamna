@@ -43,13 +43,13 @@ public:
 
     virtual void draw_line
     (tImageInterface &image, tInt x1,tInt y1, tInt x2,tInt y2) {
-        bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x1,y1, x2,y2);
+        bresenham_line_drawt<extends, tPixel, tInt>(*this, image, x1,y1, x2,y2);
     }
     virtual void draw_triangle
     (tImageInterface &image, tInt x1,tInt y1, tInt x2,tInt y2, tInt x3,tInt y3) {
-        bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x1,y1, x2,y2);
-        bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x2,y2, x3,y3);
-        bresenham_line_drawt<Extends, tPixel, tInt>(*this, image, x3,y3, x1,y1);
+        bresenham_line_drawt<extends, tPixel, tInt>(*this, image, x1,y1, x2,y2);
+        bresenham_line_drawt<extends, tPixel, tInt>(*this, image, x2,y2, x3,y3);
+        bresenham_line_drawt<extends, tPixel, tInt>(*this, image, x3,y3, x1,y1);
     }
 };
 

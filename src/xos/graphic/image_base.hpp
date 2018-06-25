@@ -30,17 +30,14 @@ namespace graphic {
 ///  Class: image_baset
 ///////////////////////////////////////////////////////////////////////
 template
-<class TImageBaseInterface = image_base_interface,
- class TBase = base,
- class TImplements = TImageBaseInterface, class TExtends = TBase>
+<class TImplements = image_base_interface, class TExtends = base>
 
 class _EXPORT_CLASS image_baset: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
 
-    typedef TImageBaseInterface tImageBaseInterface;
-    typedef TBase tBase;
+    typedef implements tImageBaseInterface;
 
     image_baset(tImageBaseInterface& image): image_(image) {
     }

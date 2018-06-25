@@ -27,12 +27,16 @@ namespace xos {
 namespace graphic {
 
 ///////////////////////////////////////////////////////////////////////
-///  Class: shape_interface
+///  Class: shape_interfacet
 ///////////////////////////////////////////////////////////////////////
-class _EXPORT_CLASS shape_interface: virtual public image_interface {
-public:
-    typedef image_interface implements;
+template <class TImplements = image_interface>
 
+class _EXPORT_CLASS shape_interfacet: virtual public TImplements {
+public:
+    typedef TImplements implements;
+
+    typedef implements tImageInterface;
+    
     virtual tImageInterface* select_as_image() {
         tImageInterface* prevImage = 0;
         return prevImage;
@@ -66,6 +70,15 @@ public:
     virtual tSize height() const {
         return 0;
     }
+};
+
+typedef shape_interfacet<> shape_interface_implements;
+///////////////////////////////////////////////////////////////////////
+///  Class: shape_interface
+///////////////////////////////////////////////////////////////////////
+class _EXPORT_CLASS shape_interface: virtual public shape_interface_implements {
+public:
+    typedef shape_interface_implements implements;
 };
 
 } /// namespace graphic

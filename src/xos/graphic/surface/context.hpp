@@ -33,17 +33,14 @@ namespace surface {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TPixelInterface = pixel_interface,
- class TInterfaceBase = context_interface,
- class TBase = base,
- class TImplements = TInterfaceBase, class TExtends = TBase>
+ class TImplements = context_interface, class TExtends = base>
 
-class _EXPORT_CLASS contextt: virtual public TImplements,public TExtends {
+class _EXPORT_CLASS contextt: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
 
     typedef TPixelInterface tPixelInterface;
-    typedef TInterfaceBase tInterfaceBase;
 
     contextt() {
     }
