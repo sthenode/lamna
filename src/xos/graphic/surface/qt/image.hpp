@@ -34,15 +34,13 @@ namespace qt {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TQContextInterface = context_interface,
- class TImageInterface = surface::image_interface,
- class TImplements = TImageInterface>
+ class TImplements = surface::image_interface>
 
 class _EXPORT_CLASS image_interfacet: virtual public TImplements {
 public:
     typedef TImplements implements;
 
     typedef TQContextInterface tQContextInterface;
-    typedef TImageInterface tImageInterface;
 
     virtual tQContextInterface& surfaceQContext() const = 0;
 };
@@ -52,17 +50,15 @@ typedef image_interfacet<> image_interface;
 ///  Class: imaget
 ///////////////////////////////////////////////////////////////////////
 template
-<class TQImageInterface = image_interface,
- class TImage = surface::image,
- class TQContextInterface = context_interface,
- class TImplements = TQImageInterface, class TExtends = TImage>
+<class TQContextInterface = context_interface,
+ class TImplements = image_interface, class TExtends = surface::image>
 
 class _EXPORT_CLASS imaget: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
 
-    typedef TQImageInterface tQImageInterface;
+    typedef implements tQImageInterface;
     typedef TQContextInterface tQContextInterface;
 
     imaget

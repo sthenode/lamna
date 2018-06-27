@@ -33,9 +33,8 @@ namespace qt {
 ///  Class: context_interfacet
 ///////////////////////////////////////////////////////////////////////
 template
-<class TContextInterface = surface::context_interface,
- class TQPixelInterface = pixel_interface,
- class TImplements = TContextInterface>
+<class TQPixelInterface = pixel_interface,
+ class TImplements = surface::context_interface>
 
 class _EXPORT_CLASS context_interfacet: virtual public TImplements {
 public:
@@ -55,10 +54,8 @@ typedef context_interfacet<> context_interface;
 ///  Class: contextt
 ///////////////////////////////////////////////////////////////////////
 template
-<class TContextInterface = context_interface,
- class TContext = surface::context,
- class TQPixelInterface = pixel_interface,
- class TImplements = TContextInterface, class TExtends = TContext>
+<class TQPixelInterface = pixel_interface,
+ class TImplements = context_interface, class TExtends = surface::context>
 
 class _EXPORT_CLASS contextt: virtual public TImplements, public TExtends {
 public:

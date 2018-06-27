@@ -34,15 +34,14 @@ namespace qt {
 ///////////////////////////////////////////////////////////////////////
 template
 <class TQImageInterface = image_interface,
- class TShape = surface::shape,
- class TExtends = TShape>
+ class TImplements = graphic::shape_interface, class TExtends = surface::shape>
 
-class _EXPORT_CLASS shapet: public TExtends {
+class _EXPORT_CLASS shapet: virtual public TImplements, public TExtends {
 public:
+    typedef TImplements implements;
     typedef TExtends extends;
 
     typedef TQImageInterface tQImageInterface;
-    typedef TShape tShape ;
 
     shapet(tQImageInterface& surfaceQImage)
     : extends(surfaceQImage), m_surfaceQImage(surfaceQImage) {
